@@ -30,7 +30,7 @@ public class PersonServlet extends HttpServlet {
         } else {
             request.setAttribute("person", new Person(firstName,lastName,Integer.parseInt(age)));
         }
-        getServletContext().getRequestDispatcher("/name.jsp").forward(request, response);
+        getServletContext().getRequestDispatcher("/person.jsp").forward(request, response);
     }
 
     @Override
