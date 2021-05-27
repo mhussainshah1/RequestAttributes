@@ -3,8 +3,8 @@ package model;
 
 //Java Bean
 //1- Implements Serializable
-//2- no arg constructor
-//3- private members with getters and setters
+//2- no arg constructor e.g. Person()
+//3- private members with getters and setters eg:- String getFirstName() ,  setFirstName(String firstName)
 
 import java.io.Serializable;
 
