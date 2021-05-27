@@ -1,17 +1,14 @@
 package com.example.RequestAttributes;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.http.*;
+import jakarta.servlet.annotation.*;
+import model.Person;
 
 import java.io.IOException;
 
-//http://localhost:8080/name?firstName=Amir&lastNamer=Shah&age=20
-@WebServlet(name = "NameServlet", urlPatterns = "/name")
-public class NameServlet extends HttpServlet {
-
+@WebServlet(name = "PersonServlet", urlPatterns = "/person")
+public class PersonServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String firstName = request.getParameter("firstName");
@@ -29,19 +26,15 @@ public class NameServlet extends HttpServlet {
 
         if (error.length() > 0) {
             request.setAttribute("error", error.toString());
+            request.setAttribute("person", new Person());
         } else {
-            request.setAttribute("firstName", firstName);
-            request.setAttribute("lastName", lastName);
-            request.setAttribute("age", age);
+            request.setAttribute("person", new Person(firstName,lastName,Integer.parseInt(age)));
         }
-//        getServletContext().getRequestDispatcher("/name.jsp").forward(request, response);
-        getServletContext().getRequestDispatcher("/other").forward(request, response);
-
+        getServletContext().getRequestDispatcher("/name.jsp").forward(request, response);
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
 
     }
 }
