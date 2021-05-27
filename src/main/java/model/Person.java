@@ -1,4 +1,6 @@
 package model;
+//POJO - Plain old java object
+
 //Java Bean
 //1- Implements Serializable
 //2- no arg constructor
