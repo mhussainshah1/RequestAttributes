@@ -14,8 +14,8 @@ public class Person implements Serializable {
     private int age;
 
     public Person() {
-        this.firstName = "Muhammad";
-        this.lastName = "Shah";
+        this.firstName = "Bob";
+        this.lastName = "Jenkins";
         age = 30;
     }
 
